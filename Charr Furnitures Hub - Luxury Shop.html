@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost/furniture_management/shop.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charr Furnitures Hub - Luxury Shop</title>
+    <link href="./Charr Furnitures Hub - Luxury Shop_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Charr Furnitures Hub - Luxury Shop_files/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #1B263B;
+            min-height: 100vh;
+            padding: 30px 5%;
+            color: #ffffff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Gold Floating Background Orbs */
+        .bg-glow-1 {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(169, 162, 39, 0.15) 0%, rgba(27, 38, 59, 0) 70%);
+            top: -150px;
+            left: -150px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatGlow 12s infinite alternate ease-in-out;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(169, 162, 39, 0.12) 0%, rgba(27, 38, 59, 0) 70%);
+            bottom: -200px;
+            right: -200px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatGlow 15s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(70px, 50px) scale(1.15); }
+        }
+
+        /* Luxury Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 19, 29, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 20px 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(169, 162, 39, 0.35);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: #A9A227;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #A9A227;
+        }
+
+        .cart-link {
+            color: #1B263B !important;
+            background: #A9A227;
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(169, 162, 39, 0.3);
+            transition: all 0.3s ease !important;
+        }
+
+        .cart-link:hover {
+            background: #8e881f;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(169, 162, 39, 0.5);
+        }
+
+        .btn-logout {
+            color: #f87171 !important;
+        }
+
+        .btn-logout:hover {
+            color: #ef4444 !important;
+        }
+
+        /* Search Section Styling */
+        .search-container {
+            background: rgba(13, 19, 29, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(169, 162, 39, 0.25);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            background: rgba(27, 38, 59, 0.8);
+            border: 1px solid rgba(169, 162, 39, 0.4);
+            border-radius: 30px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #A9A227;
+            box-shadow: 0 0 12px rgba(169, 162, 39, 0.4);
+        }
+
+        .btn-search {
+            background: #A9A227;
+            color: #1B263B;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(169, 162, 39, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-search:hover {
+            background: #8e881f;
+            color: #ffffff;
+        }
+
+        .btn-reset {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-reset:hover {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-color: #f87171;
+        }
+
+        /* Alert Notification */
+        .alert {
+            background: rgba(169, 162, 39, 0.2);
+            border: 1px solid #A9A227;
+            color: #A9A227;
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Grid Setup */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Luxury Product Card */
+        .product-card {
+            background: rgba(13, 19, 29, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 22px;
+            border: 1px solid rgba(169, 162, 39, 0.25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #A9A227;
+            box-shadow: 0 18px 35px rgba(169, 162, 39, 0.25);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 200px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: #1B263B;
+            border: 1px solid rgba(169, 162, 39, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+
+        .product-price {
+            color: #A9A227;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Quantity Box */
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .qty-wrapper label {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .qty-input {
+            width: 70px;
+            padding: 8px;
+            background: #A9A227;
+            color: #1B263B;
+            border: 1px solid #A9A227;
+            border-radius: 8px;
+            font-weight: 700;
+            outline: none;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .qty-input:focus {
+            box-shadow: 0 0 10px rgba(169, 162, 39, 0.6);
+        }
+
+        /* Gold Shine Button */
+        .btn-add {
+            position: relative;
+            background: #A9A227;
+            color: #1B263B;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(169, 162, 39, 0.2);
+        }
+
+        .btn-add::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-add:hover::before {
+            left: 100%;
+        }
+
+        .btn-add:hover {
+            background: #8e881f;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(169, 162, 39, 0.4);
+        }
+
+        .no-products {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 50px;
+            color: #94a3b8;
+        }
+
+        .no-products i {
+            font-size: 50px;
+            color: #A9A227;
+            margin-bottom: 15px;
+        }
+
+        /* Enhanced Mobile Responsive Styling */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px 12px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+                padding: 4px 6px;
+            }
+
+            .cart-link {
+                padding: 7px 15px;
+            }
+
+            .search-container {
+                padding: 12px;
+            }
+
+            .search-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-input, .btn-search, .btn-reset {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+                gap: 18px;
+            }
+
+            .product-card {
+                padding: 15px;
+            }
+
+            .img-wrapper {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ambient Gold Glows -->
+<div class="bg-glow-1"></div>
+<div class="bg-glow-2"></div>
+
+<!-- Header with Brand Name & Navigation -->
+<div class="header">
+    <h1>🛋️ Charr Furnitures Hub</h1>
+    <div class="nav-links">
+        <a href="http://localhost/furniture_management/shop.php" style="color:#A9A227;">Home</a>
+        <a href="http://localhost/furniture_management/shop.php">Shop / Products</a>
+        <a href="http://localhost/furniture_management/about.php">About Us</a>
+        <a href="http://localhost/furniture_management/contact.php">Contact Us</a>
+        <a href="http://localhost/furniture_management/cart.php" class="cart-link"><i class="fa-solid fa-cart-shopping"></i> Cart (0)</a>
+        <a href="http://localhost/furniture_management/my_orders.php">My Orders</a>
+        <a href="http://localhost/furniture_management/index.php" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+</div>
+
+<!-- Simple Search Bar -->
+<div class="search-container">
+    <form method="GET" action="http://localhost/furniture_management/shop.php" class="search-form">
+        <input type="text" name="search" class="search-input" placeholder="Search furniture (e.g. Sofa, Chair, Table...)" value="">
+        <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </form>
+</div>
+
+
+<div class="products-grid">
+                        <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/product_6aab764d9eaec2.39932260.jpg" alt="dresser" class="product-img">
+                                            </div>
+                    <h3 class="product-title">dresser</h3>
+                    <div class="product-price">Rs. 85,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="10">
+                    <input type="hidden" name="product_name" value="dresser">
+                    <input type="hidden" name="product_price" value="85000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="product_6aab764d9eaec2.39932260.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/product_6aab75384e3b55.80736503.jpg" alt="lamp" class="product-img">
+                                            </div>
+                    <h3 class="product-title">lamp</h3>
+                    <div class="product-price">Rs. 40,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="9">
+                    <input type="hidden" name="product_name" value="lamp">
+                    <input type="hidden" name="product_price" value="40000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="product_6aab75384e3b55.80736503.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/product_6aab747c01fbf0.70916599.jpg" alt="single Bed" class="product-img">
+                                            </div>
+                    <h3 class="product-title">single Bed</h3>
+                    <div class="product-price">Rs. 39,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="8">
+                    <input type="hidden" name="product_name" value="single Bed">
+                    <input type="hidden" name="product_price" value="39000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="product_6aab747c01fbf0.70916599.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/product_6aab73341d6f55.20038614.jpg" alt="swing" class="product-img">
+                                            </div>
+                    <h3 class="product-title">swing</h3>
+                    <div class="product-price">Rs. 150,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="7">
+                    <input type="hidden" name="product_name" value="swing">
+                    <input type="hidden" name="product_price" value="150000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="product_6aab73341d6f55.20038614.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/bed.jpg" alt="Bed" class="product-img">
+                                            </div>
+                    <h3 class="product-title">Bed</h3>
+                    <div class="product-price">Rs. 79,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="6">
+                    <input type="hidden" name="product_name" value="Bed">
+                    <input type="hidden" name="product_price" value="79000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="bed.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/study desk.jpg" alt="Study Desk" class="product-img">
+                                            </div>
+                    <h3 class="product-title">Study Desk</h3>
+                    <div class="product-price">Rs. 39,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="5">
+                    <input type="hidden" name="product_name" value="Study Desk">
+                    <input type="hidden" name="product_price" value="39000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="study desk.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/office chair.jpg" alt="Office Chair" class="product-img">
+                                            </div>
+                    <h3 class="product-title">Office Chair</h3>
+                    <div class="product-price">Rs. 22,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="4">
+                    <input type="hidden" name="product_name" value="Office Chair">
+                    <input type="hidden" name="product_price" value="22000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="office chair.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/Morden wardrobe.avif" alt="Modern Wardrobe" class="product-img">
+                                            </div>
+                    <h3 class="product-title">Modern Wardrobe</h3>
+                    <div class="product-price">Rs. 90,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="3">
+                    <input type="hidden" name="product_name" value="Modern Wardrobe">
+                    <input type="hidden" name="product_price" value="90000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="Morden wardrobe.avif"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/coffy tbl.jpg" alt="Coffee Table" class="product-img">
+                                            </div>
+                    <h3 class="product-title">Coffee Table</h3>
+                    <div class="product-price">Rs. 36,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="2">
+                    <input type="hidden" name="product_name" value="Coffee Table">
+                    <input type="hidden" name="product_price" value="36000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="coffy tbl.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+                    <div class="product-card">
+                <div>
+                    <div class="img-wrapper">
+                                                    <img src="./Charr Furnitures Hub - Luxury Shop_files/dainig.jpg" alt="Dining Table" class="product-img">
+                                            </div>
+                    <h3 class="product-title">Dining Table</h3>
+                    <div class="product-price">Rs. 210,000.00</div>
+                </div>
+
+                <form method="POST" action="http://localhost/furniture_management/shop.php">
+                    <input type="hidden" name="product_id" value="1">
+                    <input type="hidden" name="product_name" value="Dining Table">
+                    <input type="hidden" name="product_price" value="210000.00">
+                    
+                    <!-- Dynamic Image Input Field -->
+                    <input type="hidden" name="product_image" value="dainig.jpg"> 
+                    
+                    <div class="qty-wrapper">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" class="qty-input">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn-add"><i class="fa-solid fa-plus"></i> Add to Cart</button>
+                </form>
+            </div>
+            </div>
+
+
+</body></html>

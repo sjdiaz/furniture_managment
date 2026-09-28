@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://localhost/furniture_management/dashboard.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture Management System</title>
+<link rel="stylesheet" href="./Furniture Management System_files/style.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+    <div class="brand">🪑 <span>Furniture MS</span></div>
+    <nav>
+        <a href="http://localhost/furniture_management/dashboard.php">🏠 Dashboard</a>
+        <a href="http://localhost/furniture_management/customers.php">👥 Customers</a>
+        <a href="http://localhost/furniture_management/products.php">🛋 Products</a>
+        <a href="http://localhost/furniture_management/orders.php">📦 Orders</a>
+        <a href="http://localhost/furniture_management/payments.php">💳 Payments</a>
+        <a href="http://localhost/furniture_management/reports.php">📊 Reports</a>
+        <a href="http://localhost/furniture_management/logout.php" class="logout">🚪 Logout</a>
+    </nav>
+</aside>
+<main class="main">
+<header class="topbar">
+    <div>
+        <h2>Dashboard</h2>
+    </div>
+    <div class="user">👤 Administrator</div>
+</header>
+<div class="content">
+
+<link rel="stylesheet" href="./Furniture Management System_files/style.css">
+<link href="./Furniture Management System_files/css2" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: #334155;
+    min-height: 100vh;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.cards .stat {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cards .stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cards .stat span {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cards .stat strong {
+    font-size: 24px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 8px;
+    display: block;
+}
+
+.cards .stat div {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 38px;
+    opacity: 0.85;
+    background: rgba(241, 245, 249, 0.6);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 25px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.panel h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.panel p {
+    color: #475569;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.quick-links .btn {
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.quick-links .btn:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+}
+
+.quick-links .btn.primary {
+    background: #d35400;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(211, 84, 0, 0.25);
+}
+
+.quick-links .btn.primary:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(211, 84, 0, 0.35);
+}
+</style>
+
+<div class="cards">
+    <div class="stat"><span>Customers</span><strong>9</strong><div>👥</div></div>
+    <div class="stat"><span>Products</span><strong>10</strong><div>🛋</div></div>
+    <div class="stat"><span>Orders</span><strong>3</strong><div>📦</div></div>
+    <div class="stat"><span>Paid Revenue</span><strong>Rs. 235,000.00</strong><div>💰</div></div>
+    <div class="stat"><span>Stock Profit Margin</span><strong>Rs. 2,439,200.00</strong><div>📈</div></div>
+</div>
+
+<div class="panel">
+    <h3>Furniture Management System</h3>
+    <p>Manage customers, furniture products, supplier purchasing details, orders, payments and reports from one place.</p>
+    <div class="quick-links">
+        <a class="btn primary" href="http://localhost/furniture_management/customers.php">Add Customer</a>
+        <a class="btn" href="http://localhost/furniture_management/products.php">Manage Products</a>
+        <a class="btn" href="http://localhost/furniture_management/orders.php">Create Order</a>
+        <a class="btn" href="http://localhost/furniture_management/reports.php">View Reports</a>
+    </div>
+</div>
+
+</div> <!-- Close .content -->
+
+<!-- ROYAL FOOTER -->
+<footer style="text-align: center; padding: 20px 0; color: #94a3b8; font-size: 13px; border-top: 1px solid rgba(212, 175, 55, 0.15); margin-top: 40px; background: rgba(11, 19, 43, 0.4);">
+    <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;">
+        © 2026 <span style="color: #d4af37; font-family: 'Cinzel', serif; font-weight: 600;">Furniture Management System</span>. All Rights Reserved.
+    </p>
+</footer>
+
+</main> <!-- Close .main -->
+</div> <!-- Close .layout -->
+
+<script src="./Furniture Management System_files/script.js.download"></script>
+
+</body></html>

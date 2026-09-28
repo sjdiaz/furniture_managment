@@ -1,0 +1,6 @@
+2026/09/26-13:10:53.109 51d0 Reusing MANIFEST C:\xampp\htdocs\furniture_management\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2026/09/26-13:10:53.112 51d0 Recovering log #3
+2026/09/26-13:10:53.120 51d0 Reusing old log C:\xampp\htdocs\furniture_management\.wwebjs_auth\session\Default\Local Storage\leveldb/000003.log 
+2026/09/26-13:11:22.829 5a48 Level-0 table #5: started
+2026/09/26-13:11:23.023 5a48 Level-0 table #5: 20496 bytes OK
+2026/09/26-13:11:23.141 5a48 Delete type=0 #3

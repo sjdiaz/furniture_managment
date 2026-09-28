@@ -1,0 +1,514 @@
+/* =========================================
+   FURNITURE MANAGEMENT SYSTEM - STYLE.CSS
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #202733;
+    margin: 0;
+    padding: 0;
+    background-image: url("C:/xampp/htdocs/furniture_management/images.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* =========================================
+   MAIN LAYOUT
+   ========================================= */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.sidebar {
+    width: 245px;
+    min-height: 100vh;
+    background: #202a35;
+    color: white;
+    padding: 22px 14px;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 12px 10px 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar nav a {
+    color: #dce5ed;
+    text-decoration: none;
+    padding: 13px 14px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    background: #334252;
+    color: white;
+}
+
+.sidebar .logout {
+    margin-top: 25px;
+    background: #8b2635;
+}
+
+.sidebar .logout:hover {
+    background: #a93243;
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.main {
+    flex: 1;
+    min-width: 0;
+}
+
+/* =========================================
+   TOP BAR
+   ========================================= */
+
+.topbar {
+    height: 74px;
+    background: white;
+    border-bottom: 1px solid #e1e5e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+}
+
+.topbar h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.user {
+    font-weight: 600;
+    color: #34495e;
+}
+
+/* =========================================
+   PAGE CONTENT
+   ========================================= */
+
+.content {
+    padding: 28px;
+}
+
+/* =========================================
+   DASHBOARD CARDS
+   ========================================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.stat {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.stat span {
+    color: #687481;
+    font-size: 14px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.stat div {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    font-size: 28px;
+}
+
+/* =========================================
+   PANELS (CENTERED CONTENT)
+   ========================================= */
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center; /* Heading & paragraph center panna */
+}
+
+.panel h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+/* =========================================
+   FORMS
+   ========================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    text-align: left; /* Form elements left align aaga irukka */
+}
+
+.form-grid textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cfd6dd;
+    border-radius: 7px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #34495e;
+    box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.1);
+}
+
+textarea {
+    width: 100%;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button,
+.btn {
+    border: none;
+    padding: 11px 17px;
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn {
+    background: #e8edf2;
+    color: #202733;
+}
+
+.btn:hover {
+    background: #d6dde4;
+}
+
+.btn.primary {
+    background: #34495e;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #253746;
+}
+
+.full {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* =========================================
+   QUICK LINKS (CENTERED BUTTONS)
+   ========================================= */
+
+.quick-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center; /* Buttons center aaga alignments */
+}
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #edf0f2;
+    vertical-align: top;
+}
+
+th {
+    background: #f8fafb;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #fafcfd;
+}
+
+/* =========================================
+   DELETE LINK
+   ========================================= */
+
+.danger-link {
+    color: #c0392b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.danger-link:hover {
+    color: #922b21;
+    text-decoration: underline;
+}
+
+/* =========================================
+   STATUS BADGE
+   ========================================= */
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #edf2f6;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================================
+   SEARCH BOX
+   ========================================= */
+
+.search {
+    max-width: 350px;
+    margin-bottom: 14px;
+}
+
+/* =========================================
+   ALERT
+   ========================================= */
+
+.alert {
+    padding: 12px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.error {
+    background: #fdecec;
+    color: #a33;
+    border: 1px solid #f5c2c2;
+}
+
+/* =========================================
+   TEXT
+   ========================================= */
+
+.muted {
+    color: #74808b;
+}
+
+.hint {
+    color: #74808b;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+/* =========================================
+   LOGIN PAGE
+   ========================================= */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(
+        135deg,
+        #263746,
+        #607d8b
+    );
+}
+
+.login-card {
+    width: 390px;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.login-card h1 {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 25px;
+}
+
+.login-card .muted {
+    text-align: center;
+}
+
+.logo {
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.login-card label {
+    display: block;
+    margin: 16px 0 7px;
+    font-weight: 600;
+}
+
+.login-card input {
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .sidebar .logout {
+        margin-top: 6px;
+    }
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .topbar h2 {
+        font-size: 20px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-card {
+        width: 92%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .sidebar nav {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        height: auto;
+        min-height: 70px;
+    }
+
+    .quick-links {
+        flex-direction: column;
+    }
+
+    .quick-links .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

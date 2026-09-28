@@ -1,0 +1,26 @@
+2026/09/26-13:10:54.018 3eb0 Reusing MANIFEST C:\xampp\htdocs\furniture_management\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/09/26-13:10:54.020 3eb0 Recovering log #435
+2026/09/26-13:10:54.037 3eb0 Reusing old log C:\xampp\htdocs\furniture_management\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000435.log 
+2026/09/26-13:24:29.370 2e78 Level-0 table #447: started
+2026/09/26-13:24:29.626 2e78 Level-0 table #447: 1246000 bytes OK
+2026/09/26-13:24:29.632 2e78 Delete type=0 #435
+2026/09/26-13:24:33.334 2e78 Compacting 1@1 + 8@2 files
+2026/09/26-13:24:33.520 2e78 Generated table #448@1: 81033 keys, 2244645 bytes
+2026/09/26-13:24:33.829 2e78 Generated table #449@1: 44576 keys, 2201772 bytes
+2026/09/26-13:24:34.087 2e78 Generated table #450@1: 54923 keys, 2222988 bytes
+2026/09/26-13:24:34.141 2e78 Generated table #451@1: 7141 keys, 2147689 bytes
+2026/09/26-13:24:34.227 2e78 Generated table #452@1: 9509 keys, 2177041 bytes
+2026/09/26-13:24:34.370 2e78 Generated table #453@1: 22227 keys, 2211156 bytes
+2026/09/26-13:24:34.501 2e78 Generated table #454@1: 62731 keys, 2205460 bytes
+2026/09/26-13:24:34.510 2e78 Generated table #455@1: 2235 keys, 116498 bytes
+2026/09/26-13:24:34.510 2e78 Compacted 1@1 + 8@2 files => 15527249 bytes
+2026/09/26-13:24:34.511 2e78 compacted to: files[ 0 0 8 0 0 0 0 ]
+2026/09/26-13:24:34.512 2e78 Delete type=2 #437
+2026/09/26-13:24:34.512 2e78 Delete type=2 #438
+2026/09/26-13:24:34.512 2e78 Delete type=2 #439
+2026/09/26-13:24:34.512 2e78 Delete type=2 #440
+2026/09/26-13:24:34.513 2e78 Delete type=2 #441
+2026/09/26-13:24:34.513 2e78 Delete type=2 #442
+2026/09/26-13:24:34.513 2e78 Delete type=2 #443
+2026/09/26-13:24:34.513 2e78 Delete type=2 #444
+2026/09/26-13:24:34.513 2e78 Delete type=2 #447
