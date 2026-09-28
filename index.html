@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 To-Do List - Gold & Wine Theme</title>
+
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS Styles for Muted Gold & Deep Burgundy Theme -->
+    <style>
+        :root {
+            --color-gold: #A9A227;
+            --color-wine: #480500;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2D0300;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A9A227;
+            border-radius: 4px;
+        }
+
+        .gold-border {
+            border-color: #A9A227;
+        }
+
+        .gold-bg {
+            background-color: #A9A227;
+        }
+
+        .wine-bg {
+            background-color: #480500;
+        }
+
+        .gold-text {
+            color: #A9A227;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(169, 162, 39, 0.25);
+        }
+        
+        .gold-glow-sm {
+            box-shadow: 0 0 8px rgba(169, 162, 39, 0.2);
+        }
+
+        /* Custom Checkbox */
+        .custom-checkbox:checked {
+            background-color: #A9A227;
+            border-color: #A9A227;
+        }
+        .custom-checkbox:checked + span {
+            text-decoration: line-through;
+            color: #888888;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#2a0300] via-[#480500] to-[#1a0200] min-h-screen text-slate-100 flex flex-col justify-between font-sans antialiased selection:bg-[#A9A227] selection:text-[#480500]">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="w-full border-b border-[#A9A227]/30 bg-[#480500]/80 backdrop-blur-md sticky top-0 z-50 py-4 px-6 shadow-lg">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg gold-bg text-[#480500] flex items-center justify-center font-bold text-xl shadow-md">
+                    <i class="fa-solid fa-check-double"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide text-white">HTML5 <span class="gold-text">Task Flow</span></h1>
+                    <p class="text-xs text-[#A9A227]/80">Muted Gold & Deep Wine Theme</p>
+                </div>
+            </div>
+            <!-- Stats Badge -->
+            <div id="statsBadge" class="bg-[#2D0300] border border-[#A9A227]/40 px-3 py-1.5 rounded-full text-xs font-medium gold-text flex items-center gap-2 shadow-inner">
+                <i class="fa-solid fa-list-check"></i>
+                <span id="completedCounter">0/0 Completed</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="flex-grow max-w-3xl w-full mx-auto p-4 sm:p-6 my-6">
+        
+        <!-- Application Card Container -->
+        <section class="bg-[#380400]/90 border border-[#A9A227]/40 rounded-2xl p-6 shadow-2xl backdrop-blur-sm gold-glow">
+            
+            <!-- ADD TASK FORM -->
+            <form id="todoForm" class="mb-6">
+                <label for="taskInput" class="block text-sm font-medium gold-text mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-[#A9A227] fa-plus-circle"></i> Add New Task
+                </label>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="Type a new task here..." 
+                        class="flex-grow bg-[#2A0200] border border-[#A9A227]/40 rounded-xl px-4 py-3 text-white placeholder-amber-100/30 focus:outline-none focus:border-[#A9A227] focus:ring-1 focus:ring-[#A9A227] transition duration-200"
+                        required
+                        autocomplete="off"
+                    >
+                    <button 
+                        type="submit" 
+                        class="gold-bg hover:bg-[#c2ba2d] text-[#480500] font-bold px-6 py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg active:scale-95 cursor-pointer whitespace-nowrap"
+                    >
+                        <i class="fa-solid fa-plus"></i> Add Task
+                    </button>
+                </div>
+            </form>
+
+            <!-- CONTROLS & FILTERS -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 py-3 border-y border-[#A9A227]/20 mb-6">
+                <!-- Filter Buttons -->
+                <nav class="flex items-center gap-1 bg-[#2A0200] p-1 rounded-xl border border-[#A9A227]/30 w-full sm:w-auto justify-center">
+                    <button data-filter="all" class="filter-btn active-filter px-4 py-1.5 rounded-lg text-xs font-semibold transition-all gold-bg text-[#480500]">All</button>
+                    <button data-filter="active" class="filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold transition-all text-amber-100/70 hover:text-white">Active</button>
+                    <button data-filter="completed" class="filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold transition-all text-amber-100/70 hover:text-white">Completed</button>
+                </nav>
+
+                <!-- Clear Button -->
+                <button 
+                    id="clearCompletedBtn" 
+                    class="text-xs text-[#A9A227]/70 hover:text-[#A9A227] flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-[#2A0200] transition-all cursor-pointer border border-transparent hover:border-[#A9A227]/30"
+                >
+                    <i class="fa-solid fa-trash-can"></i> Clear Completed
+                </button>
+            </div>
+
+            <!-- TASK LIST CONTAINER -->
+            <div class="relative min-h-[250px]">
+                <ul id="taskList" class="space-y-3 max-h-[400px] overflow-y-auto pr-1">
+                    <!-- Dynamic tasks will be inserted here via JavaScript -->
+                </ul>
+
+                <!-- Empty State Message -->
+                <div id="emptyState" class="hidden absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-amber-100/40">
+                    <i class="fa-solid fa-clipboard-list text-5xl mb-3 text-[#A9A227]/30"></i>
+                    <p class="text-base font-medium">No tasks found</p>
+                    <p class="text-xs text-amber-100/30">Add a task above to get started!</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="w-full border-t border-[#A9A227]/20 bg-[#2D0300]/80 py-4 px-6 text-center text-xs text-amber-100/50">
+        <div class="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p>Built with <span class="gold-text">HTML5, CSS3 & JavaScript</span></p>
+            <p class="flex items-center gap-1">
+                <i class="fa-solid fa-database text-[#A9A227]/70"></i> Auto-saved to LocalStorage
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        // DOM Elements selection
+        const todoForm = document.getElementById('todoForm');
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+        const emptyState = document.getElementById('emptyState');
+        const completedCounter = document.getElementById('completedCounter');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const clearCompletedBtn = document.getElementById('clearCompletedBtn');
+
+        // State Management
+        let tasks = JSON.parse(localStorage.getItem('theme_gold_wine_tasks')) || [
+            { id: 1, text: 'Welcome to your HTML5 To-Do App!', completed: false },
+            { id: 2, text: 'Try adding a new task above', completed: true }
+        ];
+        let currentFilter = 'all';
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTasks();
+            setupEventListeners();
+        });
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            todoForm.addEventListener('submit', handleAddTask);
+            clearCompletedBtn.addEventListener('click', handleClearCompleted);
+
+            // Filter button event listeners
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('gold-bg', 'text-[#480500]', 'active-filter');
+                        b.classList.add('text-amber-100/70');
+                    });
+                    btn.classList.add('gold-bg', 'text-[#480500]', 'active-filter');
+                    btn.classList.remove('text-amber-100/70');
+
+                    currentFilter = btn.getAttribute('data-filter');
+                    renderTasks();
+                });
+            });
+        }
+
+        // Save to LocalStorage
+        function saveTasks() {
+            localStorage.setItem('theme_gold_wine_tasks', JSON.stringify(tasks));
+        }
+
+        // Add Task Function
+        function handleAddTask(e) {
+            e.preventDefault();
+            const text = taskInput.value.trim();
+
+            if (text === '') return;
+
+            const newTask = {
+                id: Date.now(),
+                text: text,
+                completed: false
+            };
+
+            tasks.unshift(newTask);
+            saveTasks();
+            renderTasks();
+            taskInput.value = '';
+        }
+
+        // Toggle Task Completion
+        function toggleTask(id) {
+            tasks = tasks.map(task => {
+                if (task.id === id) {
+                    return { ...task, completed: !task.completed };
+                }
+                return task;
+            });
+            saveTasks();
+            renderTasks();
+        }
+
+        // Delete Individual Task
+        function deleteTask(id) {
+            tasks = tasks.filter(task => task.id !== id);
+            saveTasks();
+            renderTasks();
+        }
+
+        // Clear All Completed Tasks
+        function handleClearCompleted() {
+            tasks = tasks.filter(task => !task.completed);
+            saveTasks();
+            renderTasks();
+        }
+
+        // Render Tasks to DOM
+        function renderTasks() {
+            // Filter tasks based on current tab
+            let filteredTasks = tasks;
+            if (currentFilter === 'active') {
+                filteredTasks = tasks.filter(task => !task.completed);
+            } else if (currentFilter === 'completed') {
+                filteredTasks = tasks.filter(task => task.completed);
+            }
+
+            // Toggle Empty State Visibility
+            if (filteredTasks.length === 0) {
+                emptyState.classList.remove('hidden');
+                taskList.innerHTML = '';
+            } else {
+                emptyState.classList.add('hidden');
+                taskList.innerHTML = filteredTasks.map(task => `
+                    <li class="group flex items-center justify-between p-3.5 bg-[#2A0200]/80 border border-[#A9A227]/30 hover:border-[#A9A227]/70 rounded-xl transition-all duration-200 gold-glow-sm">
+                        <label class="flex items-center gap-3 cursor-pointer flex-grow pr-2">
+                            <input 
+                                type="checkbox" 
+                                ${task.completed ? 'checked' : ''} 
+                                onchange="toggleTask(${task.id})"
+                                class="custom-checkbox w-5 h-5 rounded border-2 border-[#A9A227] bg-[#480500] text-[#A9A227] focus:ring-0 focus:ring-offset-0 cursor-pointer transition-all"
+                            >
+                            <span class="text-sm font-medium transition-all duration-200 ${task.completed ? 'line-through text-amber-100/40' : 'text-slate-100'}">
+                                ${escapeHtml(task.text)}
+                            </span>
+                        </label>
+                        <button 
+                            onclick="deleteTask(${task.id})" 
+                            class="text-amber-100/40 hover:text-red-400 opacity-80 group-hover:opacity-100 p-2 rounded-lg hover:bg-[#480500] transition-all cursor-pointer"
+                            title="Delete task"
+                        >
+                            <i class="fa-regular fa-trash-can text-sm"></i>
+                        </button>
+                    </li>
+                `).join('');
+            }
+
+            // Update Counter
+            const completedCount = tasks.filter(t => t.completed).length;
+            completedCounter.textContent = `${completedCount}/${tasks.length} Completed`;
+        }
+
+        // Helper: HTML Sanitize function for security
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
